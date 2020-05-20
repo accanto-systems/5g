@@ -1,0 +1,28 @@
+description: descriptor for ausf
+properties:
+  sbi.ip:
+    default: 127.0.0.1
+  sbi.port: 
+    default: 29509
+  nrfUri: 
+    default: https://localhost:29510
+  plmnSupportList:
+    - mcc: 208
+      mnc: 93
+    - mcc: 123
+      mnc: 45
+  groupId: 
+    default: ausfGroup001
+infrastructure:
+  Openstack:
+    template:
+      file: example.yaml
+      template-type: HEAT
+lifecycle:
+  Create: {}
+  Install: {}
+  Delete: {}
+default-driver:
+  ansible:
+    infrastructure-type:
+    - '*'

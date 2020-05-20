@@ -1,0 +1,14 @@
+description: descriptor for networking
+infrastructure:
+  Openstack:
+    template:
+      file: example.yaml
+      template-type: HEAT
+lifecycle:
+  Create: {}
+  Install: {}
+  Delete: {}
+default-driver:
+  ansible:
+    infrastructure-type:
+    - '*'

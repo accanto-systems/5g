@@ -1,0 +1,12 @@
+description: descriptor for 5gcore
+
+composition:
+  networking:
+  amf:
+  ausf:
+  nrf:
+  pcf:
+  smf:
+  udm:
+  udr:
+  upf:

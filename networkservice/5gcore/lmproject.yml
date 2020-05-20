@@ -1,0 +1,9 @@
+schema: '2.0'
+name: 5gcore
+version: '1.0'
+type: Assembly
+contains:
+- name: networking
+  type: Resource
+  resource-manager: brent
+  directory: networking

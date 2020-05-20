@@ -1,0 +1,28 @@
+description: descriptor for udm
+properties:
+  sbi.ip:
+    default: 127.0.0.1
+  sbi.port: 
+    default: 29503  
+  udrclient.ip:
+    default: 127.0.0.1
+  udrclient.port: 
+    default: 29504
+  nrfclient.ip:
+    default: 127.0.0.1
+  nrfclient.port: 
+    default: 29510
+  nrfUri: https://localhost:29510
+infrastructure:
+  Openstack:
+    template:
+      file: example.yaml
+      template-type: HEAT
+lifecycle:
+  Create: {}
+  Install: {}
+  Delete: {}
+default-driver:
+  ansible:
+    infrastructure-type:
+    - '*'

@@ -1,0 +1,25 @@
+description: descriptor for udr
+properties:
+  sbi.ip:
+    default: 127.0.0.1
+  sbi.port: 
+    default: 29504
+  mongodb.name:
+    default: free5gc
+  mongodb.url: 
+    default: mongodb://localhost:27017
+  nrfUri: 
+    default: https://localhost:29510
+infrastructure:
+  Openstack:
+    template:
+      file: example.yaml
+      template-type: HEAT
+lifecycle:
+  Create: {}
+  Install: {}
+  Delete: {}
+default-driver:
+  ansible:
+    infrastructure-type:
+    - '*'

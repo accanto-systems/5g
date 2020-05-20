@@ -1,0 +1,49 @@
+{
+  "builders": [
+    {
+      "type": "openstack",
+      "identity_endpoint": "http://192.168.10.10:5000/v3",
+      "tenant_name": "admin",
+      "domain_name": "Default",
+      "username": "admin",
+      "password": "password",
+      "region": "RegionOne",
+      "networks": ["a03405c0-3eea-4cab-838e-b28349560e38"],
+      "floating_ip_network":"5c5bd438-3983-43bb-b657-d4a20490ff05",
+      "ssh_username": "ubuntu",
+      "ssh_keypair_name": "default",
+      "ssh_private_key_file":"~/Downloads/default.pem", 
+      "image_name": "free5g",
+      "source_image": "9b626531-23d4-4bf9-bc37-b75876ecfbfb",
+      "flavor": "m1.small",
+      "security_groups":["default"],
+      "insecure": "true",
+      "user_data": "#cloud-config\nmanage_etc_hosts: true\nbootcmd:\n - [ sh, -c, echo 'nameserver 8.8.8.8' > /etc/resolv.conf ]\npackage_update: false"
+    }
+  ],
+  "provisioners": [
+    {
+      "environment_vars": [
+        "HOME_DIR=/home/ubuntu"
+      ],
+      "execute_command": "echo 'ubuntu' | {{.Vars}} sudo -S -E sh -eux '{{.Path}}'",
+      "expect_disconnect": true,
+      "type": "shell",
+      "scripts": [
+        "../../common/scripts/kernel.sh"
+      ]
+    },
+    {
+      "environment_vars": [
+        "HOME_DIR=/home/ubuntu"
+      ],
+      "execute_command": "echo 'ubuntu' | {{.Vars}} sudo -S -E sh -eux '{{.Path}}'",
+      "pause_before": "20s",
+      "expect_disconnect": true,
+      "type": "shell",
+      "scripts": [
+        "../../common/scripts/free5g-install.sh"
+      ]
+    }
+  ]
+}

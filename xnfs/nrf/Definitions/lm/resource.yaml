@@ -1,0 +1,29 @@
+description: descriptor for nrf
+properties:
+  MongoDBName: 
+    default: "free5gc"
+  MongoDBUrl: 
+    default: "mongodb://127.0.0.1:27017"
+  DefaultServiceIP: 
+    default: "127.0.0.1"
+  sbi.ip:
+    default: 127.0.0.1
+  sbi.port: 
+    default: 29510
+  DefaultPlmnId.mcc:
+    default: "208"
+  DefaultPlmnId.mnc: 
+    default: "93"
+infrastructure:
+  Openstack:
+    template:
+      file: example.yaml
+      template-type: HEAT
+lifecycle:
+  Create: {}
+  Install: {}
+  Delete: {}
+default-driver:
+  ansible:
+    infrastructure-type:
+    - '*'

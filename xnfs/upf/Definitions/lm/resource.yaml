@@ -1,0 +1,21 @@
+description: descriptor for upf
+properties:
+  pfcp.addr:
+    default: 127.0.0.8
+  gtpu.addr:
+    default: 127.0.0.8
+  apn.cidr:
+    default: 60.60.0.0/24
+infrastructure:
+  Openstack:
+    template:
+      file: example.yaml
+      template-type: HEAT
+lifecycle:
+  Create: {}
+  Install: {}
+  Delete: {}
+default-driver:
+  ansible:
+    infrastructure-type:
+    - '*'

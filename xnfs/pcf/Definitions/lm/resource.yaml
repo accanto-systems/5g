@@ -1,0 +1,23 @@
+description: descriptor for pcf
+properties:
+  pcfName: 
+    default: PCF
+  sbi.ip:
+    default: 127.0.0.1
+  sbi.port: 
+    default: 29507
+  nrfUri: 
+    default: https://localhost:29510
+infrastructure:
+  Openstack:
+    template:
+      file: example.yaml
+      template-type: HEAT
+lifecycle:
+  Create: {}
+  Install: {}
+  Delete: {}
+default-driver:
+  ansible:
+    infrastructure-type:
+    - '*'

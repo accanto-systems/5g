@@ -1,0 +1,48 @@
+description: descriptor for amf
+properties:
+  amfName: 
+    type: string
+    default: AMF
+  ngapIpList:
+    type: string
+    default: 127.0.0.1
+  nrfUri:
+    type: string
+    default: https://localhost:29510
+  sbi.ip:
+    type: string
+    default: 127.0.0.1
+  sbi.port:
+    type: string
+    default: 29518
+  plmn.mcc:
+    type: string
+    default: 208
+  plmn.mnc:
+    type: string
+    default: 93
+  amfid:
+    type: string
+    default: cafe00
+  networkName.full:
+    type: string
+    default: free5GC
+  networkName.short: 
+    type: string
+    default: free
+infrastructure:
+  Openstack:
+    template:
+      file: heat.yaml
+      template-type: HEAT
+lifecycle:
+  Create: {}
+  Install: {}
+  Configure: {}
+  Start: {}
+  Stop: {}
+  Delete: {}
+default-driver:
+  ansible:
+    infrastructure-type:
+    - '*'
